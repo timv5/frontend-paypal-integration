@@ -9,7 +9,7 @@ import {SuccessAuthorizationComponent} from './success-authorization/success-aut
 const routes: Routes = [
   { path: '', component: ProductPageComponent },
   { path: 'error', component: ErrorPageComponent },
-  { path: 'success-auth', component: SuccessAuthorizationComponent },
+  { path: 'success', component: SuccessAuthorizationComponent },
   { path: '**', component: ErrorNotFoundComponent }
 ];
 

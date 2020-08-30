@@ -31,8 +31,12 @@ export class ProductPageComponent implements OnInit {
   onSubmit() {
     this.productService.authorizePayment(this.productModel)
       .subscribe((response) => {
-        const url = response["url"];
-        window.location.href = url;
+        if (response["status"] == 'success') {
+          const url = response["url"];
+          window.location.href = url;
+        } else {
+          this.router.navigate(['error']);
+        }
       }, error => {
         console.log(error);
       });
