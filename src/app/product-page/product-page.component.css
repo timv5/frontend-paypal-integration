@@ -1,0 +1,17 @@
+.social-media {
+  margin-top: 30px;
+}
+
+.social-media a {
+  margin-right: 10px;
+}
+
+.field:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.hero-body {
+  font-family: 'Questrial', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
