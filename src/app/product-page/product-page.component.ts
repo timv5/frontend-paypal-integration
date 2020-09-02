@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ProductModel} from './product.model';
-import {ProductService} from './product.service';
+import {ProductService} from '../product.service';
 import {Router} from '@angular/router';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-product-page',
@@ -11,24 +12,26 @@ import {Router} from '@angular/router';
 })
 export class ProductPageComponent implements OnInit {
 
-  private productModel: ProductModel = {
-    "totalCost": 4,
-    "productCost": 2,
-    "shippingCost": 1,
-    "tax": 1,
-    "currency": "USD",
+  public productModel: ProductModel = {
+    "totalCost": 300,
+    "productCost": 250,
+    "shippingCost": 25,
+    "tax": 25,
+    "currency": "EUR",
     "productName": "Pizza",
     "userId": 1
   }
 
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {}
 
-  onSubmit() {
+  authorizePayment() {
+    this.showSpinner();
     this.productService.authorizePayment(this.productModel)
       .subscribe((response) => {
         if (response["status"] == 'success') {
@@ -37,9 +40,19 @@ export class ProductPageComponent implements OnInit {
         } else {
           this.router.navigate(['error']);
         }
+        this.hideSpinner();
       }, error => {
         console.log(error);
+        this.hideSpinner();
       });
+  }
+
+  private showSpinner(): void {
+    this.spinner.show();
+  }
+
+  private hideSpinner(): void {
+    this.spinner.hide();
   }
 
 }

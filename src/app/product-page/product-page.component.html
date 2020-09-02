@@ -1,4 +1,11 @@
 <section class="hero is-fullheight is-default is-bold">
+  <ngx-spinner bdColor = "rgba(225,225,233,0.8)"
+               size = "medium"
+               color = "#000000"
+               type = "ball-clip-rotate"
+               [fullScreen] = "false">
+    <p style="color: white" > Logging in... </p>
+  </ngx-spinner>
   <div class="hero-head"></div>
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -15,15 +22,15 @@
           <div class="field">
             <div class="control">
               <label class="label">Product ID: 1</label>
-              <label class="label">Product cost: 2</label>
-              <label class="label">Shipping cost: 1</label>
-              <label class="label">Total cost: 4</label>
-              <label class="label">Tax: 1</label>
-              <label class="label">Currency: USD</label>
-              <label class="label">Product name: Pizza</label>
-              <label class="label">User ID: 1</label>
+              <label class="label">Product cost: {{productModel.productCost}}</label>
+              <label class="label">Shipping cost: {{productModel.shippingCost}}</label>
+              <label class="label">Total cost: {{productModel.totalCost}}</label>
+              <label class="label">Tax: {{productModel.tax}}</label>
+              <label class="label">Currency: {{productModel.currency}}</label>
+              <label class="label">Product name: {{productModel.productName}}</label>
+              <label class="label">User ID: {{productModel.userId}}</label>
             </div>
-            <button class="button is-primary" (click)="onSubmit()">Buy PIZZA with PAYPAL</button>
+            <button class="button is-primary" (click)="authorizePayment()">Buy PIZZA with PAYPAL</button>
           </div>
         </div>
       </div>

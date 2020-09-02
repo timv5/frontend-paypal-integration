@@ -4,12 +4,14 @@ import {ProductPageComponent} from './product-page/product-page.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
 import {ErrorNotFoundComponent} from './error-not-found/error-not-found.component';
 import {SuccessAuthorizationComponent} from './success-authorization/success-authorization.component';
+import {ExecutePaymentComponent} from './execute-payment/execute-payment.component';
 
 
 const routes: Routes = [
   { path: '', component: ProductPageComponent },
   { path: 'error', component: ErrorPageComponent },
   { path: 'success', component: SuccessAuthorizationComponent },
+  { path: 'execute', component: ExecutePaymentComponent },
   { path: '**', component: ErrorNotFoundComponent }
 ];
 
