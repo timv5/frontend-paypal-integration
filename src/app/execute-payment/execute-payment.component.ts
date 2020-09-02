@@ -46,6 +46,7 @@ export class ExecutePaymentComponent implements OnInit {
         this.hideSpinner();
       }, error => {
         console.log(error);
+        this.router.navigate(['error']);
         this.hideSpinner();
       });
   }
